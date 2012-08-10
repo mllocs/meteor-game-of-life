@@ -9,3 +9,5 @@ take a look at Meteor.
 *It's execution is very slow* since there are hundreds of MongoDB queries
 in each step. I would like to improve the performance in the future using
 an aliveNeighbours count.
+
+You can try it at [http://game-of-life.meteor.com/](http://game-of-life.meteor.com/).
