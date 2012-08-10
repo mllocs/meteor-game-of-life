@@ -1,0 +1,25 @@
+<head>
+  <title>Game of Life</title>
+</head>
+
+<body>
+  {{> grid}}
+  {{> buttons}}
+</body>
+
+<template name="grid">
+  <div id="grid">
+    {{#each cells}}
+      {{> cell}}
+    {{/each}}
+  </div>
+</template>
+
+<template name="cell">
+  <div id="cell_{{row}}_{{col}}" class="cell {{cssClass}}" title="{{row}} {{col}}"></div>
+</template>
+
+<template name="buttons">
+  <button id="step" class="btn">Step</button>
+  <button id="reset" class="btn">Reset</button>
+</template>

@@ -1,0 +1,25 @@
+/* CSS declarations go here */
+
+div#grid {
+  width: 200px;
+  height: 200px;
+}
+
+.cell {
+  float: left;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #aaa;
+}
+
+.cell:hover {
+  border: 1px solid #eee;
+}
+
+.white {
+  background: white;
+}
+
+.black {
+  background: black;
+}
