@@ -1,5 +1,10 @@
 /* CSS declarations go here */
 
+div#container {
+  width: 205px;
+  margin: 20px auto;
+}
+
 div#grid {
   width: 200px;
   height: 200px;
@@ -24,6 +29,10 @@ div#grid {
   background: black;
 }
 
+div.buttons {
+  margin: 10px auto;
+}
+
 button.btn {
-  margin: 4px 0;
+  padding: 2px 15px;
 }

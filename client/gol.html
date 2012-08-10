@@ -3,11 +3,14 @@
 </head>
 
 <body>
-  {{> grid}}
-  {{> buttons}}
+  <div id="container">
+    {{> grid}}
+    {{> buttons}}
+  </div>
 </body>
 
 <template name="grid">
+  <h2>Game of Life on Meteor</h2>
   <div id="grid">
     {{#each cells}}
       {{> cell}}
@@ -20,6 +23,8 @@
 </template>
 
 <template name="buttons">
-  <button id="step" class="btn">Step</button>
-  <button id="reset" class="btn">Reset</button>
+  <div class="buttons">
+    <button id="step" class="btn">Step</button>
+    <button id="reset" class="btn">Reset</button>
+  </div>
 </template>
