@@ -23,3 +23,7 @@ div#grid {
 .black {
   background: black;
 }
+
+button.btn {
+  margin: 4px 0;
+}
