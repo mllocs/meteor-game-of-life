@@ -1,12 +1,5 @@
 
 //
-// COLLECTIONS
-//
-
-Cells = new Meteor.Collection("cells");
-
-
-//
 // CLIENT STARTUP
 //
 
