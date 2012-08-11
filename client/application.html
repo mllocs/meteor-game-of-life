@@ -6,6 +6,7 @@
   <div id="container">
     {{> grid}}
     {{> buttons}}
+    {{> footer}}
   </div>
 </body>
 
@@ -26,5 +27,11 @@
   <div class="buttons">
     <button id="step" class="btn">Step</button>
     <button id="reset" class="btn">Reset</button>
+  </div>
+</template>
+
+<template name="footer">
+  <div id="footer">Check the code on 
+    <a href="https://github.com/mllocs/meteor-game-of-life" target="blank">Github</a>.
   </div>
 </template>

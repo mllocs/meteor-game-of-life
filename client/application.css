@@ -4,7 +4,8 @@
 
 div#container {
   width: 205px;
-  margin: 20px auto;
+  margin: 30px auto 20px;
+  text-align: center;
 }
 
 div#grid {
@@ -32,9 +33,25 @@ div#grid {
 }
 
 div.buttons {
-  margin: 10px auto;
+  margin: 20px auto;
 }
 
 button.btn {
   padding: 2px 15px;
+}
+
+div#footer {
+  margin-top: 30px;
+  padding-top: 5px;
+  border-top: 1px solid #ddd;
+  color: #ccc;
+  font-size: small;
+}
+
+div#footer a {
+  color: #bbb;
+}
+
+div#footer a:hover {
+  text-decoration: none;
 }
