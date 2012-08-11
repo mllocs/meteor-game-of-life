@@ -1,5 +1,7 @@
 /* CSS declarations go here */
 
+@charset "utf-8";
+
 div#container {
   width: 205px;
   margin: 20px auto;

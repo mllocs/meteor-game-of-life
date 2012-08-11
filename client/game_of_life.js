@@ -1,11 +1,8 @@
-Meteor.startup(function () {
-  GameOfLife.init();
-});
 
-// MongoDB docs
-Cells = new Meteor.Collection("cells");
+// 
+// GAME OF LIFE OBJECT
+//
 
-// Game of Life implementation
 GameOfLife = {
 
   // Parameteres
@@ -17,20 +14,17 @@ GameOfLife = {
   cell_states_tmp: [],
 
   init: function() {
-    // GoL Initialization
-    if (Meteor.is_server) {
-      if (Cells.find().count() === 0) {
-        for (var row = 0; row < this.rows; row++) {
-          for (var col = 0; col < this.cols; col++) {
-            random_state = _.shuffle([1, 0])[0];
-            Cells.insert({row: row, col: col, alive: random_state});
-          }
-        }
+    // GOL Initialization
+
+    // Create matrices
+    this.cell_states = Array.matrix(this.rows, this.cols, 0);
+    this.cell_states_tmp = Array.matrix(this.rows, this.cols, 0);
+
+    // Sync initial states
+    for (var row = 0; row < this.rows; row++) {
+      for (var col = 0; col < this.cols; col++) {
+        this.cell_states[row][col] = Cells.findOne({ row: row, col: col }).alive;
       }
-    } else {
-      // Create memory matrix
-      this.cell_states = Array.matrix(this.rows, this.cols, 0);
-      this.cell_states_tmp = Array.matrix(this.rows, this.cols, 0);
     }
   },
 
@@ -62,11 +56,10 @@ GameOfLife = {
       for (var w = -1; w <= 1; w++) {
         var tmp_row = row + h;
         var tmp_col = col + w;
-        if (tmp_row >= 0 && tmp_row < this.rows) {
-          if (tmp_col >= 0 && tmp_col < this.cols) {
-            if (this.cell_states[tmp_row][tmp_col] === 1) {
-              na++;
-            }
+        if ((tmp_row >= 0 && tmp_row < this.rows) &&
+           (tmp_col >= 0 && tmp_col < this.cols)) {
+          if (this.cell_states[tmp_row][tmp_col] === 1) {
+            na++;
           }
         }
       }
@@ -75,6 +68,7 @@ GameOfLife = {
   },
 
   updateTempValue: function(row, col) {
+    // GOL Step Logic
 
     na        = this.neighboursAlive(row, col);
     alive     = this.cellAlive(row, col);
@@ -103,7 +97,10 @@ GameOfLife = {
 
   updateValue: function(row, col) {
     // Updates DB value
-    Cells.update({ row: row, col: col }, { $set: { alive: this.cell_states_tmp[row][col] }} );
+    Cells.update(
+      { row: row, col: col }, 
+      { $set: { alive: this.cell_states_tmp[row][col] } } 
+    );
   },
 
   step: function() {
