@@ -4,6 +4,7 @@
 
 <body>
   <div id="container">
+    {{> github_ribbon}}
     {{> grid}}
     {{> buttons}}
     {{> footer}}
@@ -31,7 +32,15 @@
 </template>
 
 <template name="footer">
-  <div id="footer">Check the code on 
-    <a href="https://github.com/mllocs/meteor-game-of-life" target="blank">Github</a>.
+  <div id="footer">
+    {{online_users}}
+    - 
+    <a href="https://github.com/mllocs/meteor-game-of-life/blob/master/README.md" target="blank">Readme</a>
+    - 
+    <a href="http://twitter.com/mllocs" target="blank">@mllocs</a>
   </div>
+</template>
+
+<template name="github_ribbon">
+  <a href="https://github.com/mllocs/meteor-game-of-life"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 </template>

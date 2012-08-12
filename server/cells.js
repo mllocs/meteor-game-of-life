@@ -1,6 +1,6 @@
 
 //
-// SERVER STARTUP
+// SERVER CELLS STARTUP
 //
 
 Meteor.startup(function () {
